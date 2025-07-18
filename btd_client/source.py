@@ -96,11 +96,41 @@ class BalticTransparencyClient:
         """Get df of TSO procured balancing reserve prices (EUR/MW)."""
         response = self._get_data(api_id='price_procured_reserves')
         return self._unravel_response(response, levels=3)
+    
+    def procured_balancing_reserve_volumes_df(self) -> pd.DataFrame:
+        """Get df of TSO procured balancing reserve volumes (MW)."""
+        response = self._get_data(api_id='procured_reserves')
+        return self._unravel_response(response, levels=3)
 
     def cbmp_df(self) -> pd.DataFrame:
         """Get df of cross border marginal prices (EUR/MWh)."""
         response = self._get_data(api_id='cross_border_marginal_price')
         return self._unravel_response(response, levels=3)
+    
+    def afrr_bid_prices_df(self) -> pd.DataFrame:
+        """Get df of offered min/max afrr prices."""
+        response = self._get_data(api_id='afrr_bid_prices')
+        return self._unravel_response(response, levels=3)
+    
+    def da_mfrr_bid_prices_df(self) -> pd.DataFrame:
+        """Get df of offered min/max direct mfrr prices."""
+        response = self._get_data(api_id='da_mfrr_bid_prices')
+        return self._unravel_response(response, levels=3)
+    
+    def sa_mfrr_bid_prices_df(self) -> pd.DataFrame:
+        """Get df of offered min/max scheduled mfrr prices."""
+        response = self._get_data(api_id='sa_mfrr_bid_prices')
+        return self._unravel_response(response, levels=3)
+    
+    def da_mfrr_bid_volumes_df(self) -> pd.DataFrame:
+        """Get df of offered direct mfrr volumes."""
+        response = self._get_data(api_id='da_mfrr_bid_volumes')
+        return self._unravel_response(response, levels=2)
+    
+    def sa_mfrr_bid_volumes_df(self) -> pd.DataFrame:
+        """Get df of offered scheduled mfrr volumes."""
+        response = self._get_data(api_id='sa_mfrr_bid_volumes')
+        return self._unravel_response(response, levels=2)
 
     def imbalance_volumes_df(self) -> pd.DataFrame:
         """Get df of imbalance volumes for each country (MWh)."""
@@ -130,6 +160,11 @@ class BalticTransparencyClient:
     def imbalance_prices_df(self) -> pd.DataFrame:
         """Get df of imabalnce prices calculated by each Baltics TSO."""
         response = self._get_data(api_id='imbalance_prices')
+        return self._unravel_response(response, levels=1)
+    
+    def neutrality_component_df(self) -> pd.DataFrame:
+        """Get df the neutrality components."""
+        response = self._get_data(api_id='neutrality_component')
         return self._unravel_response(response, levels=1)
     
     def local_marginal_prices_df(self) -> pd.DataFrame:
