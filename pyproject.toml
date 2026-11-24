@@ -1,13 +1,13 @@
 [project]
-name = "btd-python"  # This will be your pip install name
-version = "0.2.0"
+name = "btd-python"
+version = "0.2.1"
 description = "A python client for Baltic Transparency Data"
 authors = [
     { name = "Sarunas Jurgilas", email = "" }
 ]
 license = { text = "MIT" }
 requires-python = ">=3.7"
-dependencies = ["requests", "pandas"]  # Add any dependencies here, like requests, etc.
+dependencies = ["requests", "pandas"]
 
 [project.urls]
 Homepage = "https://github.com/sarunasign/btd-python"
