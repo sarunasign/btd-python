@@ -215,7 +215,7 @@ class BalticTransparencyClient:
     def imbalance_prices_df(self) -> pd.DataFrame:
         """Get df of imabalnce prices calculated by each Baltics TSO."""
         response = self._get_data(api_id='imbalance_prices')
-        return self._unravel_response(response, levels=1)
+        return self._unravel_response(response, levels=2)
     
     def neutrality_component_df(self) -> pd.DataFrame:
         """Get df the neutrality components."""
